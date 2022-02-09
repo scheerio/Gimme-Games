@@ -1,4 +1,32 @@
-html,
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-white bg-gray-800;
+}
+
+/* .background-animate {
+  background-size: 400%;
+  -webkit-animation: CardImageAnimation 3s ease infinite;
+  -moz-animation: CardImageAnimation 3s ease infinite;
+  animation: CardImageAnimation 3s ease infinite;
+}
+
+@keyframes CardImageAnimation {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+} */
+
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -13,4 +41,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
+} */
