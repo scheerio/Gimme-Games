@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import Image from 'next/image'
 
 type Props = {
+    id: number,
     game: string,
     description: string,
     rank: number,
-    hashtags: Array<any>
+    hashtags: Array<any>,
+    handleGameSelection: (id: number) => void
 };
 
-function GameCard({ game, description, rank, hashtags }: Props) {
-
-    const [showModal, setShowModal] = React.useState(false);
-    console.log(showModal)
+function GameCard({ id, game, description, rank, hashtags, handleGameSelection }: Props) {
 
     // const tempImageBackgrounds = [
     //     'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500',
@@ -54,7 +53,7 @@ function GameCard({ game, description, rank, hashtags }: Props) {
                 </div>
                 <div className="flex flex-col">
                     <div className="px-6 py-2 flex flex-row justify-center items-center">
-                        <button className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 content-center bg-transparent hover:bg-white bg-indigo-700 font-semibold hover:text-black py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="button" onClick={() => setShowModal(true)}>
+                        <button className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 content-center bg-transparent hover:bg-white bg-indigo-700 font-semibold hover:text-black py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="button" onClick={(e) => handleGameSelection(id)}>
                             Play {game}
                         </button>
                     </div>
