@@ -38,7 +38,7 @@ function Navbar({}: Props) {
                 </a>
             </div>
             <div>
-                <a href="#" className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:border-none hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">Play Random Game</a>
+                <a href="#" className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">Play Random Game</a>
             </div>
         </div>
     </nav>
