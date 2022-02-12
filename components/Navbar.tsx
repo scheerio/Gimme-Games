@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image'
 
 type Props = {};
 
 function Navbar({}: Props) {
+
+    const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
+
+    const handleMobileMenuClick = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        setMobileMenuOpened(prev=>!prev);
+    };
+
     return (
     // <nav>
     //     <div classNameName="flex justify-between item-center">
@@ -21,10 +29,37 @@ function Navbar({}: Props) {
                 <span className="font-semibold text-3xl tracking-tight mr-5">Gimme Games</span>
             </div>
             <div className="block sm:hidden transition ease-in-out delay-100 hover:scale-110 transform duration-300">
-                <button className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white hover:bg-white hover:text-black">
+                <button className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white hover:bg-white hover:text-black" onClick={handleMobileMenuClick}>
                 <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
                 </button>
             </div>
+            {mobileMenuOpened ? (
+                <>
+                <div
+                    className="transition ease-in-out delay-100 transform duration-300 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                >
+                    <div className="relative w-screen my-6 mx-20 max-w-3xl">
+                    {/*content*/}
+                    <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                        {/*header*/}
+                        <div className="text-black flex items-start justify-end p-5 border-b border-solid border-blueGray-200 rounded-t">
+                        <button className="scale-110" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
+                        </div>
+                        {/*body*/}
+                        <div className="text-black relative p-6 flex-auto flex items-center justify-center">
+                            <nav>
+                                <div className="p-3">Games</div>
+                                <div className="p-3">Stats</div>
+                                <div className="p-3">About</div>
+                            </nav>
+                        </div>
+                        {/*footer*/}
+                    </div>
+                    </div>
+                </div>
+                <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+            ) : null}
         {/* </div> */}
         {/* edit flex grow to move nav to right */}
         <div className="hidden lg:visible w-full block sm:flex sm:w-auto sm:ml-5 flex-grow">

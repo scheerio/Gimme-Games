@@ -38,15 +38,15 @@ const Home: NextPage = () => {
       {showSelectedGame > 0 ? (
         <>
           <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="transition ease-in-out delay-100 transform duration-300 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative w-screen my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="text-black flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                Wordpunch
-                <button onClick={(e)=>handleExitGame(e)}>X</button>
+                  <span className="font-bold text-2xl mb-2 mr-3">Wordpunch</span>
+                <button className="scale-110" onClick={(e)=>handleExitGame(e)}>✖</button>
                 </div>
                 {/*body*/}
                 <div className="text-black relative p-6 flex-auto">
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
                 </div>
                 {/*footer*/}
                 <div className="text-black flex items-center p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  hello
+                  Created by Ben and Fidel
                 </div>
               </div>
             </div>
