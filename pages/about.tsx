@@ -6,7 +6,7 @@ type Props = {}
 function about({}: Props) {
   return (
       <Layout>
-          <div>about</div>
+          <div className="h-screen">about</div>
       </Layout>
   )
 }

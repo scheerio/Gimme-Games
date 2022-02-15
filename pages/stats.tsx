@@ -6,7 +6,7 @@ type Props = {}
 function stats({}: Props) {
   return (
       <Layout>
-          <div>stats</div>
+          <div className="h-screen">stats</div>
       </Layout>
   )
 }
