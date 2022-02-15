@@ -1,57 +1,76 @@
 const dummyArray = [
     {
-        id: 1,
+        id: 0,
         game: "Wordpunch",
         description: "Just a silly game for humans. Nothing crazy. Try to get as many treats as you can.",
         hashtags: [
             {
-                id: 1,
+                id: 0,
                 label: "wordpunch"
             },
             {
-                id: 2,
+                id: 1,
                 label: "stumped"
             },
             {
-                id: 3,
+                id: 2,
+                label: "goodguess"
+            }
+        ]
+    },
+    {
+        id: 1,
+        game: "Bingbong",
+        description: "Just a silly game for humans. Nothing crazy. Try to get as many treats as you can.",
+        hashtags: [
+            {
+                id: 0,
+                label: "bingbong"
+            },
+            {
+                id: 1,
+                label: "stumped"
+            },
+            {
+                id: 2,
                 label: "goodguess"
             }
         ]
     },
     {
         id: 2,
-        game: "Bingbong",
+        game: "Cheesebread",
         description: "Just a silly game for humans. Nothing crazy. Try to get as many treats as you can.",
         hashtags: [
             {
-                id: 1,
-                label: "bingbong"
+                id: 0,
+                label: "cheesey"
             },
             {
-                id: 2,
+                id: 1,
                 label: "stumped"
             },
             {
-                id: 3,
+                id: 2,
                 label: "goodguess"
             }
         ]
     },
     {
         id: 3,
-        game: "Cheesebread",
+        game: "Wordpunch",
         description: "Just a silly game for humans. Nothing crazy. Try to get as many treats as you can.",
         hashtags: [
             {
-                id: 1,
-                label: "cheesebread"
+                id: 0,
+                label: "bingbong"
             },
             {
-                id: 2,
+                id: 1,
                 label: "stumped"
             },
             {
-                id: 3,
+                id: 2,
                 label: "goodguess"
             }
         ]
@@ -62,34 +81,15 @@ const dummyArray = [
         description: "Just a silly game for humans. Nothing crazy. Try to get as many treats as you can.",
         hashtags: [
             {
-                id: 1,
-                label: "wordpunch"
+                id: 0,
+                label: "bingbong"
             },
             {
-                id: 2,
+                id: 1,
                 label: "stumped"
             },
             {
-                id: 3,
-                label: "goodguess"
-            }
-        ]
-    },
-    {
-        id: 5,
-        game: "Wordpunch",
-        description: "Just a silly game for humans. Nothing crazy. Try to get as many treats as you can.",
-        hashtags: [
-            {
-                id: 1,
-                label: "wordpunch"
-            },
-            {
                 id: 2,
-                label: "stumped"
-            },
-            {
-                id: 3,
                 label: "goodguess"
             }
         ]

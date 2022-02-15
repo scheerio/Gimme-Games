@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
 
-type Props = {};
+type NavbarProps = {
+    // handleSelectRandomGame: () => void
+};
 
-function Navbar({}: Props) {
+// do random id generation in index, just have this trigger a function that triggers  handlegameselection
+function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
 
     const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
@@ -13,14 +17,6 @@ function Navbar({}: Props) {
     };
 
     return (
-    // <nav>
-    //     <div classNameName="flex justify-between item-center">
-    //         <h1 classNameName="">Gimme Games</h1>
-    //         <p>One</p>
-    //         <p>Two</p>
-    //         <p>Three</p>
-    //     </div>
-    // </nav>
     <nav className="flex items-center justify-between flex-wrap p-6 rounded-t-lg bg-black/50">
         {/* <div className="flex justify-between"> */}
             <div className="flex items-center flex-shrink-0 text-white mr-0">
@@ -42,15 +38,15 @@ function Navbar({}: Props) {
                     {/*content*/}
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         {/*header*/}
-                        <div className="text-black flex items-start justify-end p-5 border-b border-solid border-blueGray-200 rounded-t">
-                        <button className="scale-110" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
+                        <div className="text-black flex items-start justify-end rounded-t">
+                        <button className="scale-110 pr-5 pt-5" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
                         </div>
                         {/*body*/}
-                        <div className="text-black relative p-6 flex-auto flex items-center justify-center">
+                        <div className="text-black relative p-6 flex-auto flex items-center justify-center text-center">
                             <nav>
-                                <div className="p-3">Games</div>
-                                <div className="p-3">Stats</div>
-                                <div className="p-3">About</div>
+                                <Link href="/"><a className="block p-3 text-3xl hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Games</a></Link>
+                                <Link href="/stats"><a className="block p-3 text-3xl hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link>
+                                <Link href="/about"><a className="block p-3 text-3xl hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
                             </nav>
                         </div>
                         {/*footer*/}
@@ -64,18 +60,13 @@ function Navbar({}: Props) {
         {/* edit flex grow to move nav to right */}
         <div className="hidden lg:visible w-full block sm:flex sm:w-auto sm:ml-5 flex-grow">
             <div className="text-lg sm:flex-grow mt-3">
-                <a href="#responsive-header" className="block sm:inline-block text-white mr-10 hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">
-                    Games
-                </a>
-                <a href="#responsive-header" className="block sm:inline-block text-white mr-10 hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">
-                    Stats
-                </a>
-                <a href="#responsive-header" className="block sm:inline-block text-white mr-10 hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">
-                    About
-                </a>
+                <Link href="/"><a className="block sm:inline-block text-white mr-10 hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Games</a></Link>
+                <Link href="/stats"><a className="block sm:inline-block text-white mr-10 hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link>
+                <Link href="/about"><a className="block sm:inline-block text-white mr-10 hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
             </div>
             <div>
-                <a href="#" className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">Play Random Game</a>
+                <a href="#" className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" /*onClick={handleSelectRandomGame}*/>Play Random Game</a>
+                {/* <a href="#" onClick={handleGameSelection(randomID)} className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">Play Random Game</a> */}
             </div>
         </div>
     </nav>

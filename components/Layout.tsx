@@ -1,0 +1,20 @@
+import React from 'react'
+import Footer from './Footer'
+import Navbar from './Navbar'
+
+type Props = {
+    children: React.ReactNode
+    // handleSelectRandomGame: () => void
+}
+
+function Layout({ children/*, handleSelectRandomGame*/ }: Props) {
+  return (
+    <div className="min-h-screen p-4">
+      <Navbar /*handleSelectRandomGame={handleSelectRandomGame}*/ />
+      {children}
+      <Footer />
+    </div>
+  )
+}
+
+export default Layout
