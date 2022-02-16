@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {
     id: number,
@@ -7,10 +8,10 @@ type Props = {
     description: string,
     rank: number,
     hashtags: Array<any>,
-    handleGameSelection: (id: number) => void
+    // handleGameSelection: (id: number) => void
 };
 
-function GameCard({ id, game, description, rank, hashtags, handleGameSelection }: Props) {
+function GameCard({ id, game, description, rank, hashtags/*, handleGameSelection*/ }: Props) {
 
     // const tempImageBackgrounds = [
     //     'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500',
@@ -53,9 +54,11 @@ function GameCard({ id, game, description, rank, hashtags, handleGameSelection }
                 </div>
                 <div className="flex flex-col">
                     <div className="px-6 py-2 flex flex-row justify-center items-center">
-                        <button className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 content-center bg-transparent hover:bg-white bg-indigo-700 font-semibold hover:text-black py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="button" onClick={(e) => handleGameSelection(id)}>
-                            Play {game}
-                        </button>
+                        <Link href={"/"+game.toLowerCase()}>
+                            <button className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 content-center bg-transparent hover:bg-white bg-indigo-700 font-semibold hover:text-black py-2 px-4 border border-blue-500 hover:border-transparent rounded" type="button" /*onClick={(e) => handleGameSelection(id)}*/>
+                                Play {game}
+                            </button>
+                        </Link>
                     </div>
                     <div className="px-6 pt-5 pb-4 flex flex-row justify-center items-center flex-wrap">
                         {hashtags.map((hashtag)=>{

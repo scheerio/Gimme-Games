@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 
 type Props = {}
 
-function stats({}: Props) {
+function Stats({}: Props) {
   return (
       <Layout>
           <div className="h-screen">stats</div>
@@ -11,4 +11,4 @@ function stats({}: Props) {
   )
 }
 
-export default stats
+export default Stats;
