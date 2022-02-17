@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import GameModal from '../components/GameModal';
 import Layout from '../components/Layout';
 
 type Props = {}
 
 function Game({}: Props) {
+
+  const [modalOpen, setModalOpen] = useState(true);
+
+  const handleExitGame = () => {
+    setModalOpen(!modalOpen);
+  }
+
   return (
+    <>
+      {modalOpen ? <GameModal handleExitGame={handleExitGame}/> : null}
       <Layout>
           {/* <div h-screen bg-black text-green-500>
             <h1>hello</h1>
@@ -33,7 +43,7 @@ function Game({}: Props) {
           <div>
             <div className="flex flex-col justify-center items-center">
               <div className="flex flex-row">
-                <input className="w-40 text-center p-3 bg-gray-600 rounded text-xl"></input>
+                <input autoFocus className="w-40 text-center p-3 bg-gray-600 rounded text-xl"></input>
                 <button className="ml-3 p-5 transform duration-300 content-center bg-transparent hover:bg-white bg-green-500 font-semibold hover:text-black border border-green-100 hover:border-transparent rounded">Enter</button>
               </div>
               <p className="p-3 text-green-500">Tries left: 3</p>
@@ -41,6 +51,7 @@ function Game({}: Props) {
           </div>
         </div>
       </Layout>
+    </>
   )
 }
 

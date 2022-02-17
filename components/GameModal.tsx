@@ -1,11 +1,11 @@
 import React from 'react'
 
 type Props = {
-    selectedGameId: number,
+    // selectedGameId: number,
     handleExitGame: () => void
 }
 
-function GameModal({ selectedGameId, handleExitGame }: Props) {
+function GameModal({ /*selectedGameId,*/ handleExitGame }: Props) {
   return (
     <>
     <div
@@ -21,7 +21,7 @@ function GameModal({ selectedGameId, handleExitGame }: Props) {
           </div>
           {/*body*/}
           <div className="text-black relative p-6 flex-auto">
-            {selectedGameId}
+            hello
           </div>
           {/*footer*/}
           <div className="text-black flex items-center p-6 border-t border-solid border-blueGray-200 rounded-b">
