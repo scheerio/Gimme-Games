@@ -38,7 +38,7 @@ function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
                 <div
                     className="transition ease-in-out delay-100 transform duration-300 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
                 >
-                    <div className="relative w-screen my-6 mx-20 max-w-3xl">
+                    <div className="relative w-screen my-6 mx-20 max-w-xl">
                     {/*content*/}
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         {/*header*/}

@@ -9,7 +9,7 @@ function Game({}: Props) {
   const [modalOpen, setModalOpen] = useState(true);
   const [triesLeft, setTriesLeft] = useState(3);
 
-  const handleExitGame = () => {
+  const handleExitModal = () => {
     setModalOpen(!modalOpen);
   }
 
@@ -19,7 +19,7 @@ function Game({}: Props) {
 
   return (
     <>
-      {modalOpen ? <GameModal handleExitGame={handleExitGame}/> : null}
+      {modalOpen ? <GameModal handleExitModal={handleExitModal}/> : null}
       <Layout>
         <div className="h-fit text-white p-10 bg-black overflow-x-hidden flex flex-col justify-center items-center">
           <h1 className="text-3xl">Wordpunch</h1>
