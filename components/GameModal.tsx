@@ -10,19 +10,19 @@ function GameModal({ /*selectedGameId,*/ handleExitModal }: Props) {
     const exampleHintList = (
         <ol className="flex flex-col justify-center items-center text-2xl">
         <div className="m-1 p-1 bg-white rounded w-fit">
-          <li className="text-black">F<span className="text-green-500 font-semibold">_</span>ight</li>
+          <li className="text-black"><span className="text-green-500 font-semibold">_</span>reed</li>
         </div>
         <div className="m-1 p-1 bg-white rounded w-fit">
-          <li className="text-black">F<span className="text-green-500 font-semibold">_</span>ight</li>
+          <li className="text-black">lo<span className="text-green-500 font-semibold">_</span>se</li>
         </div>
         <div className="m-1 p-1 bg-white rounded w-fit">
-          <li className="text-black">F<span className="text-green-500 font-semibold">_</span>ight</li>
+          <li className="text-black">ste<span className="text-green-500 font-semibold">_</span>l</li>
         </div>
         <div className="m-1 p-1 bg-white rounded w-fit">
-          <li className="text-black">F<span className="text-green-500 font-semibold">_</span>ight</li>
+          <li className="text-black"><span className="text-green-500 font-semibold">_</span>amble</li>
         </div>
         <div className="m-1 p-1 bg-white rounded w-fit">
-          <li className="text-black">F<span className="text-green-500 font-semibold">_</span>ight</li>
+          <li className="text-black"><span className="text-green-500 font-semibold">_</span>ehydrate</li>
         </div>
         </ol>
     );
@@ -46,9 +46,13 @@ function GameModal({ /*selectedGameId,*/ handleExitModal }: Props) {
             <p className="border-t border-solid border-blueGray-200 pt-4 font-semibold">Example:</p>
             <div className="flex flex-row justify-evenly p-3">
                 <div>{exampleHintList}</div>
-                <div>hello</div>
+                <div className="">
+                    <p>Chance #1) goarr (wrong)</p>
+                    <p>Chance #2) foard (wrong)</p>
+                    <p>Chance #3) board (correct, you did it!)</p>
+                </div>
             </div>
-            <button className="text-xl mt-3 p-5 transform duration-300 content-center bg-transparent hover:bg-white bg-green-500 font-semibold hover:text-black border border-green-100 hover:border-transparent rounded" onClick={handleExitModal}>Continue</button>
+            <button className="text-xl mt-3 p-5 transform duration-300 content-center bg-transparent hover:bg-green-500 bg-green-200 font-semibold hover:text-black border-2 border-green-500 hover:border-transparent rounded" onClick={handleExitModal}>Got it!</button>
           </div>
           {/*footer*/}
           {/* <div className="text-black flex items-center p-6 border-t border-solid border-blueGray-200 rounded-b">
