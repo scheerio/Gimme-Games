@@ -6,24 +6,39 @@ export const getWordpunchGameData = () => {
     let hintsList: string[] = [];
 
     for (let answerChar of answer){
-        let randomWord: string = WORDS[Math.floor(Math.random() * WORDS.length)];
-        if (randomWord != answer && !(hintsList.includes(randomWord))){
-            let randomWordAsArray = randomWord.split('')
-            for (let i = 0; i < randomWord.length; i++){
-                if (answerChar == randomWord[i]){
-                    randomWordAsArray[i] = ' ';
-                    break;
+        let foundValidHint = false;
+        while (!foundValidHint){
+            let randomWord: string = WORDS[Math.floor(Math.random() * WORDS.length)];
+            let hintTryCount = 0;
+            if (randomWord != answer && !(hintsList.includes(randomWord))){
+                let randomWordAsArray: string[] = randomWord.split('')
+                if (randomWordAsArray.includes(answerChar)){
+                    for (let i = 0; i < randomWord.length; i++){
+                        if (answerChar == randomWord[i]){
+                            randomWordAsArray[i] = ' ';
+                            break;
+                        }
+                    }
+                    randomWord = randomWordAsArray.join('');
+                    hintsList.push(randomWord);
+                    foundValidHint = true;
+                }
+            } else {
+                if (hintTryCount == WORDS.length-5){
+                    foundValidHint = true;
+                    getWordpunchGameData();
+                } else {
+                    hintTryCount++;
                 }
             }
-            randomWord = randomWordAsArray.join('');
-            hintsList.push(randomWord);
-            continue;
         }
     }
 
     if (hintsList.length < answer.length){
         getWordpunchGameData();
     }
+
+    console.log([answer, ...hintsList])
 
     return [answer, ...hintsList];
 }
@@ -36,7 +51,7 @@ export const validateWordpunchEntry = (input: string) => {
     .join('')
     .toLowerCase();
 
-    return newInput;
+    return newInput.slice(0,5);
 }
 
 function isLetter(char: string) {
