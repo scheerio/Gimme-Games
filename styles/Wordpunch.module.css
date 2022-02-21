@@ -1,0 +1,14 @@
+.hint-appear {
+    opacity: 0;
+}
+.hint-appear-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+.hint-exit {
+    opacity: 1;
+}
+.hint-exit-active {
+opacity: 0;
+transition: opacity 500ms ease-in;
+}
