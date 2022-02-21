@@ -3,12 +3,19 @@ import { WORDS } from "./wordpunch_wordlist";
 export const getWordpunchGameData = () => {
 
     const answer: string = WORDS[Math.floor(Math.random() * WORDS.length)];
-    const answerSplitIntoChars: string[] = answer.split('');
     let hintsList: string[] = [];
 
-    for (let char of answerSplitIntoChars){
-        let randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+    for (let answerChar of answer){
+        let randomWord: string = WORDS[Math.floor(Math.random() * WORDS.length)];
         if (randomWord != answer && !(hintsList.includes(randomWord))){
+            let randomWordAsArray = randomWord.split('')
+            for (let i = 0; i < randomWord.length; i++){
+                if (answerChar == randomWord[i]){
+                    randomWordAsArray[i] = ' ';
+                    break;
+                }
+            }
+            randomWord = randomWordAsArray.join('');
             hintsList.push(randomWord);
             continue;
         }
@@ -17,7 +24,7 @@ export const getWordpunchGameData = () => {
     if (hintsList.length < answer.length){
         getWordpunchGameData();
     }
-    
+
     return [answer, ...hintsList];
 }
 

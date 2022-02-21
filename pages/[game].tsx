@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import InstructionsModal from '../components/InstructionsModal';
 import Layout from '../components/Layout';
-import { validateWordpunchEntry } from '../static/wordpunch/wordpunch_logic';
+import { getWordpunchGameData, validateWordpunchEntry } from '../static/wordpunch/wordpunch_logic';
 
 type Props = {}
 
@@ -11,6 +11,9 @@ function Game({}: Props) {
   const [triesLeft, setTriesLeft] = useState(3);
   const [input, setInput] = useState('');
   const [dialog, setDialog] = useState('Good luck guessing this word');
+
+  let gameData = getWordpunchGameData();
+  const answer = gameData.unshift();
 
   const wrongGuessDialogs = ['Nope, try again', 'You might be close', 'No, guess again'];
   const lostGameDialogs = ['Better luck next time', 'Aw shoot, you lost', 'You lost, but good game'];
@@ -56,6 +59,11 @@ function Game({}: Props) {
           <p className="p-1 text-green-500 text-xl">{dialog}</p>
           {/* <p className="p-5 text-green-500 flex justify-center items-center">Today's hint:</p> */}
           <ol className="mt-1 mb-3 flex flex-col justify-center items-center text-2xl">
+            {/* {
+              gameData.map((word)=>{
+                for
+              })
+            } */}
             <div className="m-1 p-1 bg-white rounded w-fit">
               <li className="text-black">F<span className="text-green-500 font-semibold">_</span>ight</li>
             </div>
