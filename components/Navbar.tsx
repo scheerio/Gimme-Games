@@ -43,7 +43,7 @@ function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         {/*header*/}
                         <div className="text-black flex items-start justify-end rounded-t">
-                        <button className="scale-110 pr-5 pt-5" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
+                        <button className="scale-110 pr-5 pt-4" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
                         </div>
                         {/*body*/}
                         <div className="text-black relative p-6 flex-auto flex items-center justify-center text-center">
