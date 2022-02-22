@@ -9,6 +9,6 @@
     opacity: 1;
 }
 .hint-exit-active {
-opacity: 0;
-transition: opacity 500ms ease-in;
+    opacity: 0;
+    transition: opacity 500ms ease-in;
 }

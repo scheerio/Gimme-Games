@@ -45,7 +45,7 @@ function InstructionsModal({ /*selectedGameId,*/ handleExitModal }: Props) {
           {/*body*/}
           <div className="text-black relative p-6 flex-auto text-center">
             {/* <p className="">Guess today's word by using the hints.</p> */}
-            <p className="">You get <strong>3 tries</strong> to guess today's word!</p>
+            <p className="">You get <strong>5 tries</strong> to guess today's word!</p>
             <p className="">Each hint contains part of the answer.</p>
             {/* <p className="">You get <strong>3 tries</strong> to guess correctly!</p> */}
             <p className="mb-5">A new game starts every 24 hours!</p>

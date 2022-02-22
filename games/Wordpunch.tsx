@@ -10,7 +10,7 @@ type Props = {}
 function Wordpunch({}: Props) {
 
   const [modalOpen, setModalOpen] = useState(true);
-  const [triesLeft, setTriesLeft] = useState(3);
+  const [triesLeft, setTriesLeft] = useState(5);
   const [input, setInput] = useState('');
   const [dialog, setDialog] = useState('Good luck guessing this word');
   const [gameData, setGameData] = useState<string[]>([]);
@@ -26,13 +26,13 @@ function Wordpunch({}: Props) {
     setAnswer(currentAnswer);
     // setDidWinGame(JSON.parse(localStorage.getItem('winStatus') || 'false'));
     // setDidLoseGame(JSON.parse(localStorage.getItem('loseStatus') || 'false'))
-    // setTriesLeft(JSON.parse(window.localStorage.getItem('triesLeft') || '3'))
+    // setTriesLeft(JSON.parse(window.localStorage.getItem('triesLeft') || '5'))
   }, []);
 
   useEffect(()=>{
-    localStorage.setItem('winStatus', JSON.stringify(didWinGame));
-    localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
-    localStorage.setItem('triesLeft', JSON.stringify(triesLeft));
+    // localStorage.setItem('winStatus', JSON.stringify(didWinGame));
+    // localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
+    // localStorage.setItem('triesLeft', JSON.stringify(triesLeft));
   }, [triesLeft])
 
   const wordpunchInputRef = useRef<HTMLInputElement>(null);
@@ -85,13 +85,15 @@ function Wordpunch({}: Props) {
         <div className="h-fit text-white p-10 bg-black overflow-x-hidden flex flex-col justify-center items-center">
           <h1 className="text-3xl">Wordpunch</h1>
           <p className="p-1 text-green-500 text-xl">{dialog}</p>
-          <TransitionGroup component="ol" className="mt-1 mb-3 flex flex-col justify-center items-center text-2xl">
+          {/* <TransitionGroup component="ol" className="mt-1 mb-3 flex flex-col justify-center items-center text-2xl"> */}
+          <ol className="mt-1 mb-3 flex flex-col justify-center items-center text-2xl">
             {
               gameData.map((word, i)=>{
                 let splitWord = word.split(' ');
                 return (
                   //Look into this below
-                  <CSSTransition key={word} appear={true} timeout={2000} classNames={styles.hint}>
+                //   <CSSTransition key={word} appear={true} timeout={2000} classNames={styles.hint}>
+                <div key={word}>
                   {(i < input.length && !didWinGame && !didLoseGame)
                   ? <div className="m-1 p-1 bg-white rounded w-fit">
                       <li className="text-black"><span>{splitWord[0]}</span><span className="text-green-500 font-semibold">_</span><span>{splitWord[1]}</span></li>
@@ -110,18 +112,19 @@ function Wordpunch({}: Props) {
                     </div>
                   : <div className="m-1 p-1 bg-black rounded w-fit">
                       <li className="text-white"><span>{splitWord[0]}</span><span className="text-green-500 font-semibold">_</span><span>{splitWord[1]}</span></li>
-                    </div>
-                  }
-                  </CSSTransition>
+                    </div>}
+                </div>
+                // </CSSTransition>
                 );
               })
             }
-          </TransitionGroup>
-          <div>
+          {/* </TransitionGroup> */}
+          </ol>
+          <div className="">
             <div className="mt-3 flex flex-col justify-center items-center">
               <div className="flex flex-row">
-                <input autoFocus className="w-40 text-center outline-0 pb-1 bg-gray-600 bg-opacity-60 rounded text-4xl" onChange={e => handleInputChanged(e)} value={input} placeholder='guess' ref={wordpunchInputRef}></input>
-                <button className="text-xl ml-3 p-5 text-black border-2 border-green-500 transform duration-300 content-center bg-transparent hover:bg-green-500 bg-green-200 font-semibold hover:text-black hover:border-transparent rounded" onClick={handleEnterInput}>Enter</button>
+                <input autoFocus className="w-40 text-center outline-0 pb-1 bg-gray-600 bg-opacity-60 rounded text-4xl text-white" onChange={e => handleInputChanged(e)} value={input} placeholder='guess' ref={wordpunchInputRef}></input>
+                <button className="text-xl ml-5 p-5 text-black border-2 border-green-500 transform duration-300 content-center bg-transparent hover:bg-green-500 bg-green-200 font-semibold hover:text-black hover:border-transparent rounded" onClick={handleEnterInput}>Enter</button>
               </div>
               <div className="mt-4 flex flex-row text-xl">
                 <p className="text-green-500">Tries left:</p>
