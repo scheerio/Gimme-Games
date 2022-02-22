@@ -7,7 +7,7 @@ import GameGrid from '../components/GameGrid'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
 import { provideDummyData } from '../utils/utils';
-import GameModal from '../components/GameModal';
+import GameModal from '../components/InstructionsModal';
 import Layout from '../components/Layout';
 
 const Home: NextPage = () => {
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       const tempData = provideDummyData() as any;
       setCurrentData(tempData);
     }
-    const dummyTimeout = setTimeout(getData, 1500)
+    const dummyTimeout = setTimeout(getData, 1000)
     // return clearTimeout(dummyTimeout)
   }, [])
 

@@ -46,7 +46,7 @@ function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
                         <button className="scale-110 pr-5 pt-4" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
                         </div>
                         {/*body*/}
-                        <div className="text-black relative p-6 flex-auto flex items-center justify-center text-center">
+                        <div className="text-black relative pb-6 flex-auto flex items-center justify-center text-center">
                             <nav>
                                 <Link href="/"><a className="block p-3 text-3xl hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Games</a></Link>
                                 <Link href="/stats"><a className="block p-3 text-3xl hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link>
