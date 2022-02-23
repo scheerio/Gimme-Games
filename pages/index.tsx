@@ -12,7 +12,6 @@ import Layout from '../components/Layout';
 
 const Home: NextPage = () => {
 
-  // const [selectedGameId, setSelectedGameId] = useState(-1);
   const [currentData, setCurrentData] = useState([]);
 
   useEffect(()=>{
@@ -24,29 +23,10 @@ const Home: NextPage = () => {
     // return clearTimeout(dummyTimeout)
   }, [])
 
-  // const handleGameSelection = (id: number) => {
-  //   console.log(id)
-  //   setSelectedGameId(id);
-  // }
-
-  // const handleExitGame = () => {
-  //   setSelectedGameId(-1);
-  // }
-
-  // const handleSelectRandomGame = () => {
-  //   for (let i = 0; i < 20; i++){
-  //   console.log(Math.floor(Math.random()*currentData.length));
-  //   }
-  //   handleGameSelection(Math.floor(Math.random()*currentData.length));
-  // }
-
   return (
-    <Layout /*handleSelectRandomGame={handleSelectRandomGame}*/>
-      {/* {selectedGameId >= 0 ? (
-        <GameModal selectedGameId={selectedGameId} handleExitGame={handleExitGame}/>
-      ) : null} */}
+    <Layout>
       <div className="text-white p-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
-        <GameGrid data={currentData} /*handleGameSelection={handleGameSelection}*//>
+        <GameGrid data={currentData} />
       </div>
     </Layout>
   )

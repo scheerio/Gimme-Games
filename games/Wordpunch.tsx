@@ -23,38 +23,30 @@ function Wordpunch({}: Props) {
   const [lastSubmission, setLastSubmission] = useState('');
 
   useEffect(()=>{
-    // const currentGameData: string[] = getWordpunchGameData();
-    // const currentAnswer: string = currentGameData.shift() || '';
-    // setGameData(currentGameData);
-    // setAnswer(currentAnswer);
 
     if (!hasOneDayPassed()){
-        console.log('using local storage')
-        setDidWinGame(JSON.parse(localStorage.getItem('winStatus') || 'false'));
-        setDidLoseGame(JSON.parse(localStorage.getItem('loseStatus') || 'false'));
-        setTriesLeft(JSON.parse(localStorage.getItem('triesLeft') || '5'));
-        setGameData(JSON.parse(localStorage.getItem('currentGameData') || '[]'));
-        setAnswer(JSON.parse(localStorage.getItem('currentAnswer') || ''));
-        setDialog(JSON.parse(localStorage.getItem('currentDialog') || 'Good luck guessing this word'));
-        setModalOpen(JSON.parse(localStorage.getItem('currentModalOpenStatus') || 'true'));
-        setLastSubmission(JSON.parse(localStorage.getItem('lastSubmission') || ''));
+        getAndSetLocalStorageOnInitialRender();
     } else {
         const currentGameData: string[] = getWordpunchGameData();
         const currentAnswer: string = currentGameData.shift() || '';
         setGameData(currentGameData);
         setAnswer(currentAnswer);
-        localStorage.setItem('winStatus', JSON.stringify(didWinGame));
-        localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
-        localStorage.setItem('triesLeft', JSON.stringify(triesLeft));
-        localStorage.setItem('currentGameData', JSON.stringify(gameData));
-        localStorage.setItem('currentAnswer', JSON.stringify(answer));
-        localStorage.setItem('currentDialog', JSON.stringify(dialog));
-        localStorage.setItem('currentModalOpenStatus', JSON.stringify(modalOpen));
-        localStorage.setItem('lastSubmission', JSON.stringify(lastSubmission));
+        setLocalStorageForAllExceptLastSubmission();
+        setLocalStorageForLastSubmissionOnly();
     }
   }, []);
 
   useEffect(()=>{
+    setLocalStorageForAllExceptLastSubmission();
+  }, [triesLeft])
+
+  useEffect(()=>{
+    setLocalStorageForLastSubmissionOnly();
+  }, [lastSubmission])
+
+  const wordpunchInputRef = useRef<HTMLInputElement>(null);
+
+  const setLocalStorageForAllExceptLastSubmission = () => {
     localStorage.setItem('winStatus', JSON.stringify(didWinGame));
     localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
     localStorage.setItem('triesLeft', JSON.stringify(triesLeft));
@@ -62,14 +54,22 @@ function Wordpunch({}: Props) {
     localStorage.setItem('currentAnswer', JSON.stringify(answer));
     localStorage.setItem('currentDialog', JSON.stringify(dialog));
     localStorage.setItem('currentModalOpenStatus', JSON.stringify(modalOpen));
-    // localStorage.setItem('lastSubmission', JSON.stringify(lastSubmission));
-  }, [triesLeft])
+  }
 
-  useEffect(()=>{
-    localStorage.setItem('lastSubmission', JSON.stringify(lastSubmission));
-  }, [lastSubmission])
+  const setLocalStorageForLastSubmissionOnly = () => {
+      localStorage.setItem('lastSubmission', JSON.stringify(lastSubmission));
+  }
 
-  const wordpunchInputRef = useRef<HTMLInputElement>(null);
+  const getAndSetLocalStorageOnInitialRender = () => {
+    setDidWinGame(JSON.parse(localStorage.getItem('winStatus') || 'false'));
+    setDidLoseGame(JSON.parse(localStorage.getItem('loseStatus') || 'false'));
+    setTriesLeft(JSON.parse(localStorage.getItem('triesLeft') || '5'));
+    setGameData(JSON.parse(localStorage.getItem('currentGameData') || '[]'));
+    setAnswer(JSON.parse(localStorage.getItem('currentAnswer') || ''));
+    setDialog(JSON.parse(localStorage.getItem('currentDialog') || 'Good luck guessing this word'));
+    setModalOpen(JSON.parse(localStorage.getItem('currentModalOpenStatus') || 'true'));
+    setLastSubmission(JSON.parse(localStorage.getItem('lastSubmission') || ''));
+  }
 
   const handleExitModal = () => {
     setModalOpen(!modalOpen);
@@ -131,10 +131,6 @@ function Wordpunch({}: Props) {
       }
       navigator.clipboard.writeText(shareText);
       setTimeout(ReactTooltip.hide, 3000)
-  }
-
-  const displayLoseModal = () => {
-    //use this to display a new LostGameModal
   }
 
   return (

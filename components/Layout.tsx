@@ -4,13 +4,12 @@ import Navbar from './Navbar'
 
 type Props = {
     children: React.ReactNode
-    // handleSelectRandomGame: () => void
 }
 
-function Layout({ children/*, handleSelectRandomGame*/ }: Props) {
+function Layout({ children }: Props) {
   return (
     <div className="min-h-screen p-4">
-      <Navbar /*handleSelectRandomGame={handleSelectRandomGame}*/ />
+      <Navbar />
       {children}
       <Footer />
     </div>

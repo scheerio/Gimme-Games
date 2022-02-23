@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+import { GAME_NAMES_FOR_PATH } from '../static/app/app_constants';
 
 type NavbarProps = {
-    // handleSelectRandomGame: () => void
 };
 
-// do random id generation in index, just have this trigger a function that triggers  handlegameselection
-function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
+function Navbar({}: NavbarProps) {
 
     const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
-    const handleMobileMenuClick = (e: React.MouseEvent<HTMLElement>) => {
-        e.preventDefault();
+    const router = useRouter()
+
+    const handleMobileMenuClick = () => {
         setMobileMenuOpened(prev=>!prev);
     };
+
+    const handleMobileMenuReroute = (e: React.MouseEvent<HTMLElement>, path: string) => {
+        e.preventDefault();
+        if (router.asPath != path){
+            router.push(path);
+        }
+        handleMobileMenuClick();
+    };
+
+    const handleSelectRandomGame = () => {
+        if (mobileMenuOpened){
+            setMobileMenuOpened(prev=>!prev);
+        }
+        const newGamePath: string = GAME_NAMES_FOR_PATH[Math.floor(Math.random() * GAME_NAMES_FOR_PATH.length)];
+        router.push(newGamePath);
+    }
 
     return (
     <nav className="flex items-center justify-between flex-wrap p-6 rounded-t-lg bg-black/50 overflow-x-hidden">
@@ -24,7 +41,7 @@ function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
                 <Link href="/">
                     <a className="flex flex-row">
                         <Image className="w-full" src="/../public/icon.png" alt="website logo" width="60" height="60"/>
-                        <span className="mt-3 font-semibold text-3xl tracking-tight mr-5">Gimme Games</span>
+                        <span className="mt-3 font-semibold text-3xl tracking-tight mr-5">DailyPuzzles</span>
                     </a>
                 </Link>
             </div>
@@ -43,14 +60,17 @@ function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         {/*header*/}
                         <div className="text-black flex items-start justify-end rounded-t">
-                        <button className="scale-110 pr-5 pt-4" onClick={(e)=>handleMobileMenuClick(e)}>✖</button>
+                        <button className="scale-110 pr-5 pt-4" onClick={handleMobileMenuClick}>✖</button>
                         </div>
                         {/*body*/}
                         <div className="text-black relative pb-6 flex-auto flex items-center justify-center text-center">
                             <nav>
-                                <Link href="/"><a className="block p-3 text-3xl hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Games</a></Link>
-                                <Link href="/stats"><a className="block p-3 text-3xl hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link>
-                                <Link href="/about"><a className="block p-3 text-3xl hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
+                                {/* <Link href="/"><a onClick={handleMobileMenuClick} className="block p-3 text-xl hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Puzzles</a></Link> */}
+                                <a onClick={(e)=>handleMobileMenuReroute(e, '/')} className="block p-3 text-xl hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Puzzles</a>
+                                {/* <Link href="/stats"><a className="block p-3 text-3xl hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link> */}
+                                {/* <Link href="/about"><a onClick={handleMobileMenuClick} className="block p-3 text-xl hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link> */}
+                                <a onClick={(e)=>handleMobileMenuReroute(e, '/about')} className="block p-3 text-xl hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a>
+                                <a className="mt-2 transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-xl px-4 py-3 leading-none border rounded text-black border-white hover:text-black bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
                             </nav>
                         </div>
                         {/*footer*/}
@@ -64,13 +84,12 @@ function Navbar({ /*handleSelectRandomGame*/ }: NavbarProps) {
         {/* edit flex grow to move nav to right */}
         <div className="hidden lg:visible w-full block sm:flex sm:w-auto sm:ml-5 flex-grow">
             <div className="text-lg sm:flex-grow mt-3">
-                <Link href="/"><a className="block sm:inline-block text-white mr-10 hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Games</a></Link>
-                <Link href="/stats"><a className="block sm:inline-block text-white mr-10 hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link>
+                <Link href="/"><a className="block sm:inline-block text-white mr-10 hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Puzzles</a></Link>
+                {/* <Link href="/stats"><a className="block sm:inline-block text-white mr-10 hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link> */}
                 <Link href="/about"><a className="block sm:inline-block text-white mr-10 hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
             </div>
             <div>
-                <a href="#" className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" /*onClick={handleSelectRandomGame}*/>Play Random Game</a>
-                {/* <a href="#" onClick={handleGameSelection(randomID)} className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">Play Random Game</a> */}
+                <a className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
             </div>
         </div>
     </nav>

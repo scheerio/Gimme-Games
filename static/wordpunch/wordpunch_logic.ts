@@ -38,8 +38,6 @@ export const getWordpunchGameData = () => {
         getWordpunchGameData();
     }
 
-    console.log(answer);
-
     return [answer, ...hintsList];
 }
 

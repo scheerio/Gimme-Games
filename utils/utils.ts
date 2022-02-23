@@ -21,7 +21,7 @@ const dummyArray = [
     {
         id: 1,
         game: "More Coming Soon",
-        description: "Do you have an idea for a game? If so, let's chat and create something. New games are always welcome! ",
+        description: "Do you have a game idea of your own? If so, let's chat and create something. New games are always welcome!",
         hashtags: [
             {
                 id: 0,
