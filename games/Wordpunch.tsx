@@ -147,7 +147,7 @@ function Wordpunch({}: Props) {
           <div className="">
             <div className="mt-3 flex flex-col justify-center items-center">
               {(!didLoseGame && !didWinGame) && <div className="flex flex-row">
-                <input className="w-40 text-center outline-0 pb-1 bg-gray-600 bg-opacity-60 rounded text-4xl text-white" onChange={e => handleInputChanged(e)} value={input} spellCheck='false' placeholder='guess' ref={wordpunchInputRef}></input>
+                <input className="w-40 text-center outline-0 pb-1 bg-gray-600 bg-opacity-60 rounded text-4xl text-white" onChange={e => handleInputChanged(e)} value={input} spellCheck='false' placeholder='guess' ref={wordpunchInputRef} aria-label="Type guess here" aria-required="true"></input>
                 {
                     (input.length == answer.length && !didWinGame && !didLoseGame)
                     ? <button className="text-xl ml-5 p-5 text-white border-2 text-white border-green-500 transform duration-300 content-center hover:border-transparent bg-green-500 font-semibold rounded" onClick={handleEnterInput}>Enter</button>

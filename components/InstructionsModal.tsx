@@ -53,7 +53,7 @@ function InstructionsModal({ /*selectedGameId,*/ handleExitModal }: Props) {
   return (
     <>
     <div
-      className="rounded m-5 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+      className="m-8 rounded justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
     >
       <div className="relative w-screen my-6 mx-auto max-w-xl">
         {/*content*/}
