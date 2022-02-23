@@ -58,16 +58,16 @@ function isLetter(char: string) {
 
 export const hasOneDayPassed = () => {
     // // get today's date. eg: "7/37/2007"
-    // var date = new Date().toLocaleDateString();
+    var date = new Date().toLocaleDateString();
 
-    // // if there's a date in localstorage and it's equal to the above: 
-    // // inferring a day has yet to pass since both dates are equal.
-    // if( localStorage.yourDate == date ) {
-    //     return false;
-    // }
+    // if there's a date in localstorage and it's equal to the above: 
+    // inferring a day has yet to pass since both dates are equal.
+    if( localStorage.yourDate == date ) {
+        return false;
+    }
 
-    // // this portion of logic occurs when a day has passed
-    // localStorage.yourDate = date;
+    // this portion of logic occurs when a day has passed
+    localStorage.yourDate = date;
     return true;
 }
 
