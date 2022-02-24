@@ -68,6 +68,7 @@ export const hasOneDayPassed = () => {
 
     // this portion of logic occurs when a day has passed
     localStorage.yourDate = date;
+    // localStorage.clear();
     return true;
 }
 
