@@ -40,9 +40,9 @@ function Navbar({}: NavbarProps) {
             <div className="flex items-center flex-shrink-0 text-white mr-0">
                 <Link href="/">
                     <a className="flex flex-row">
-                        {/* <Image className="w-full" src="/../public/icon.png" alt="website logo" width="60" height="60"/> */}
-                        {/* <span className="mt-3 font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span> */}
-                        <span className="font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span>
+                        <Image className="w-full" src="/../public/icon.png" alt="website logo" width="60" height="60"/>
+                        <span className="mt-3 font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span>
+                        {/* <span className="font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span> */}
                     </a>
                 </Link>
             </div>
