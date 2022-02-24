@@ -41,7 +41,8 @@ function Navbar({}: NavbarProps) {
                 <Link href="/">
                     <a className="flex flex-row">
                         {/* <Image className="w-full" src="/../public/icon.png" alt="website logo" width="60" height="60"/> */}
-                        <span className="mt-3 font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span>
+                        {/* <span className="mt-3 font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span> */}
+                        <span className="font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span>
                     </a>
                 </Link>
             </div>
