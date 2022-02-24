@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
+/* Stats page for future purposes */
+
 type Props = {}
 
 function Stats({}: Props) {

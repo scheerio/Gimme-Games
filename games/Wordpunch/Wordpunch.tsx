@@ -1,17 +1,20 @@
 import React, { useRef, useEffect, useState } from 'react'
-import InstructionsModal from '../components/InstructionsModal';
-import Layout from '../components/Layout';
-import { getTomorrowForCountdown, getWordpunchGameData, hasOneDayPassed, validateWordpunchEntry } from '../static/wordpunch/wordpunch_logic';
+import InstructionsModal from './InstructionsModal';
+import Layout from '../../components/Layout';
+import { getTomorrowForCountdown, getWordpunchGameData, hasOneDayPassed, validateWordpunchEntry } from '../../static/wordpunch/wordpunch_logic';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from '../styles/Wordpunch.module.css';
-import { WRONG_GUESS_DIALOGS, WRONG_BUT_CLOSE_GUESS_DIALOGS, LOST_GAME_DIALOGS, WON_GAME_DIALOG } from '../static/wordpunch/wordpunch_constants';
+import { WRONG_GUESS_DIALOGS, WRONG_BUT_CLOSE_GUESS_DIALOGS, LOST_GAME_DIALOGS, WON_GAME_DIALOG } from '../../static/wordpunch/wordpunch_constants';
 import Countdown from 'react-countdown';
 import ReactTooltip from 'react-tooltip';
+
+/* Wordpunch game */
 
 type Props = {}
 
 function Wordpunch({}: Props) {
 
+  /* Sets up state for everything */
   const [modalOpen, setModalOpen] = useState(true);
   const [triesLeft, setTriesLeft] = useState(5);
   const [input, setInput] = useState('');
@@ -22,8 +25,8 @@ function Wordpunch({}: Props) {
   const [didLoseGame, setDidLoseGame] = useState(false);
   const [lastSubmission, setLastSubmission] = useState('');
 
+  /* On initial render, chooses whether to start fresh or use storage */
   useEffect(()=>{
-
     if (!hasOneDayPassed()){
         console.log('local')
         getAndSetLocalStorageOnInitialRender();
@@ -40,16 +43,20 @@ function Wordpunch({}: Props) {
     }
   }, []);
 
+  /* Updates storage */
   useEffect(()=>{
     setLocalStorageForAllExceptLastSubmission();
   }, [triesLeft, gameData, answer])
 
+  /* Updates storage */
   useEffect(()=>{
     setLocalStorageForLastSubmissionOnly();
   }, [lastSubmission])
 
+  /* Sets up ref for input, used to handle focus */
   const wordpunchInputRef = useRef<HTMLInputElement>(null);
 
+  /* Handles setting storage for most things */
   const setLocalStorageForAllExceptLastSubmission = () => {
     localStorage.setItem('winStatus', JSON.stringify(didWinGame));
     localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
@@ -61,10 +68,12 @@ function Wordpunch({}: Props) {
     localStorage.setItem('currentModalOpenStatus', JSON.stringify(modalOpen));
   }
 
+  /* Handles setting storage for last submission, separated from the rest because only used when last submission state changes */
   const setLocalStorageForLastSubmissionOnly = () => {
       localStorage.setItem('lastSubmission', JSON.stringify(lastSubmission));
   }
 
+  /* Gets what's in storage and sets state with it */
   const getAndSetLocalStorageOnInitialRender = () => {
     setDidWinGame(JSON.parse(localStorage.getItem('winStatus') || 'false'));
     setDidLoseGame(JSON.parse(localStorage.getItem('loseStatus') || 'false'));
@@ -76,6 +85,7 @@ function Wordpunch({}: Props) {
     setLastSubmission(JSON.parse(localStorage.getItem('lastSubmission') || ''));
   }
 
+  /* Handles exiting the instructions modal */
   const handleExitModal = () => {
     setModalOpen(!modalOpen);
     if (!didLoseGame || !didWinGame){
@@ -83,11 +93,13 @@ function Wordpunch({}: Props) {
     }
   }
 
+  /* Handles user input changes and validates */
   const handleInputChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     const validatedInput = validateWordpunchEntry(e.target.value);
     setInput(validatedInput);
   }
 
+  /* Handles entered guesses to determine what happens next */
   const handleEnterInput = () => {
     if (input.length == answer.length && triesLeft > 0 && !didWinGame) {
       //check if correct -> handle that with function. else do this:
@@ -118,6 +130,7 @@ function Wordpunch({}: Props) {
     }
   }
 
+  /* Creates text when users want to share their results */
   const getShareText = () => {
       const URL = window.location.href;
       let shareText = '';
@@ -140,7 +153,10 @@ function Wordpunch({}: Props) {
 
   return (
     <>
+      {/* Handles modal rendering */}
       {modalOpen ? <InstructionsModal handleExitModal={handleExitModal}/> : null}
+
+      {/* This renders the entire site with the game inside */}
       <Layout>
         <div className="h-screen text-white p-10 bg-black overflow-x-hidden flex flex-col items-center">
           <h1 className="text-3xl mt-10">Wordpunch</h1>
@@ -201,6 +217,8 @@ function Wordpunch({}: Props) {
                 }
             {/* </TransitionGroup> */}
             </ol>
+
+            {/* Handles game ending screen */}
             {(didLoseGame || didWinGame) &&
                 <div className="flex flex-col items-center">
                     <div className="mt-2 flex flex-row text-xl">

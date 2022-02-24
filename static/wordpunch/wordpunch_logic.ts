@@ -100,7 +100,3 @@ export const getTomorrowForCountdown = () => {
     const nextDay = (index + 1) * msInDay + epochMs
     return nextDay;
 }
-
-/*
-My thought process - this type of game would be simple to program. First, you pick a random word that's 5 letters long or so (for example, 'board'). Second, you write a function that randomly searches through a giant list of words until it finds 5 words that each contain a letter in 'board'. Third, you replace each of the 5 words to have the underline instead of the relevant letter (for example, breed -> _reed). Fourth, you just print the hint words on the screen and start the game
-*/

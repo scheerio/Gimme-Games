@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
+/* This is the about page for the website */
+
 type Props = {}
 
 function About({}: Props) {

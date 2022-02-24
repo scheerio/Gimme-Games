@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* Loading state UI for game / puzzle card in the grid */
+
 type Props = {};
 
 function GameCardSkeleton({}: Props) {

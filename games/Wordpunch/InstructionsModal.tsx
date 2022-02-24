@@ -1,12 +1,13 @@
 import React from 'react'
-import { EXAMPLE_HINT_DATA } from '../static/wordpunch/wordpunch_constants'
+import { EXAMPLE_HINT_DATA } from '../../static/wordpunch/wordpunch_constants'
+
+/* This is an instructions modal for wordpunch */
 
 type Props = {
-    // selectedGameId: number,
     handleExitModal: () => void
 }
 
-function InstructionsModal({ /*selectedGameId,*/ handleExitModal }: Props) {
+function InstructionsModal({ handleExitModal }: Props) {
 
     const exampleHintListEmpty = (
       <div className="border-4 p-2 bg-black w-fit">
@@ -69,7 +70,7 @@ function InstructionsModal({ /*selectedGameId,*/ handleExitModal }: Props) {
           </div>
           {/*footer*/}
           {/* <div className="text-black justify-center flex items-center p-6 border-t border-solid border-blueGray-200 rounded-b">
-            Created by Gimme Games
+            Created by Ben
           </div> */}
         </div>
       </div>

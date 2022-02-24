@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+/* Card for games / puzzles that displays in the grid */
+
 type Props = {
     id: number,
     game: string,

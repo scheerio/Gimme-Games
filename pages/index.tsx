@@ -7,13 +7,16 @@ import GameGrid from '../components/GameGrid'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
 import { provideDummyData } from '../utils/utils';
-import GameModal from '../components/InstructionsModal';
+import GameModal from '../games/Wordpunch/InstructionsModal';
 import Layout from '../components/Layout';
+
+/* This is the home page for the website, which is also where the puzzles are */
 
 const Home: NextPage = () => {
 
   const [currentData, setCurrentData] = useState([]);
 
+  /* This is pretty useless, it just imitates the loading state for user experience purposes - cause there's no backend yet :)*/
   useEffect(()=>{
     const getData = () => {
       const tempData = provideDummyData() as any;

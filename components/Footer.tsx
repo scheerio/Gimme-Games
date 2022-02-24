@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* Footer for the site */
+
 type Props = {};
 
 function Footer({}: Props) {
