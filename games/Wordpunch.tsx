@@ -25,20 +25,24 @@ function Wordpunch({}: Props) {
   useEffect(()=>{
 
     if (!hasOneDayPassed()){
+        console.log('local')
         getAndSetLocalStorageOnInitialRender();
     } else {
+        console.log('fresh')
         const currentGameData: string[] = getWordpunchGameData();
         const currentAnswer: string = currentGameData.shift() || '';
         setGameData(currentGameData);
         setAnswer(currentAnswer);
-        setLocalStorageForAllExceptLastSubmission();
+        // setLocalStorageForAllExceptLastSubmission();
         setLocalStorageForLastSubmissionOnly();
+        // setGameData(currentGameData);
+        // setAnswer(currentAnswer);
     }
   }, []);
 
   useEffect(()=>{
     setLocalStorageForAllExceptLastSubmission();
-  }, [triesLeft])
+  }, [triesLeft, gameData, answer])
 
   useEffect(()=>{
     setLocalStorageForLastSubmissionOnly();
@@ -50,6 +54,7 @@ function Wordpunch({}: Props) {
     localStorage.setItem('winStatus', JSON.stringify(didWinGame));
     localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
     localStorage.setItem('triesLeft', JSON.stringify(triesLeft));
+    console.log('data:' + gameData)
     localStorage.setItem('currentGameData', JSON.stringify(gameData));
     localStorage.setItem('currentAnswer', JSON.stringify(answer));
     localStorage.setItem('currentDialog', JSON.stringify(dialog));

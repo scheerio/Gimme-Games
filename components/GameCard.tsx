@@ -13,7 +13,7 @@ type Props = {
 function GameCard({ id, game, description, rank, hashtags }: Props) {
 
     const handleSetUpEmailForUser = () => {
-        window.open('mailto:benjackscheer@gmail.com?subject=Reaching Out!')
+        window.open('mailto:gimmepuzzles@gmail.com?subject=Reaching Out!')
     }
 
     return (

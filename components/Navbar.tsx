@@ -34,14 +34,12 @@ function Navbar({}: NavbarProps) {
     }
 
     return (
-    <nav className="flex items-center justify-between flex-wrap p-6 rounded-t-lg bg-black/50 overflow-x-hidden">
-        {/* <div className="flex justify-between"> */}
+        <nav className="flex items-center justify-between flex-wrap p-6 rounded-t-lg bg-black/50 overflow-x-hidden">
             <div className="flex items-center flex-shrink-0 text-white mr-0">
-                {/* <svg className="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg> */}
                 <Link href="/">
                     <a className="flex flex-row">
                         <Image className="w-full" src="/../public/icon.png" alt="website logo" width="60" height="60"/>
-                        <span className="mt-3 font-semibold text-3xl tracking-tight mr-5">DailyPuzzles</span>
+                        <span className="mt-3 font-semibold text-3xl tracking-tight sm:mr-5">GimmePuzzles</span>
                     </a>
                 </Link>
             </div>
@@ -80,19 +78,19 @@ function Navbar({}: NavbarProps) {
                 <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                 </>
             ) : null}
-        {/* </div> */}
-        {/* edit flex grow to move nav to right */}
-        <div className="hidden lg:visible w-full block sm:flex sm:w-auto sm:ml-5 flex-grow">
-            <div className="text-lg sm:flex-grow mt-3">
-                <Link href="/"><a className="block sm:inline-block text-white mr-10 hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Puzzles</a></Link>
-                {/* <Link href="/stats"><a className="block sm:inline-block text-white mr-10 hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link> */}
-                <Link href="/about"><a className="block sm:inline-block text-white mr-10 hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
+            {/* </div> */}
+            {/* edit flex grow to move nav to right */}
+            <div className="hidden lg:visible w-full block sm:flex sm:w-auto sm:ml-5 flex-grow">
+                <div className="text-lg sm:flex-grow mt-3">
+                    <Link href="/"><a className="block sm:inline-block text-white mr-10 hover:text-blue-300 transition ease-in-out delay-100 hover:scale-110">Puzzles</a></Link>
+                    {/* <Link href="/stats"><a className="block sm:inline-block text-white mr-10 hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link> */}
+                    <Link href="/about"><a className="block sm:inline-block text-white mr-10 hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
+                </div>
+                <div>
+                    <a className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
+                </div>
             </div>
-            <div>
-                <a className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
-            </div>
-        </div>
-    </nav>
+        </nav>
     );
 }
 
