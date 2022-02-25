@@ -29,10 +29,8 @@ function Wordpunch({}: Props) {
   /* On initial render, chooses whether to start fresh or use storage */
   useEffect(()=>{
     if (!hasOneDayPassed()){
-        console.log('local')
         getAndSetLocalStorageOnInitialRender();
     } else {
-        console.log('fresh')
         const currentGameData: string[] = getWordpunchGameData();
         const currentAnswer: string = currentGameData.shift() || '';
         setGameData(currentGameData);
@@ -62,7 +60,6 @@ function Wordpunch({}: Props) {
     localStorage.setItem('winStatus', JSON.stringify(didWinGame));
     localStorage.setItem('loseStatus', JSON.stringify(didLoseGame));
     localStorage.setItem('triesLeft', JSON.stringify(triesLeft));
-    console.log('data:' + gameData)
     localStorage.setItem('currentGameData', JSON.stringify(gameData));
     localStorage.setItem('currentAnswer', JSON.stringify(answer));
     localStorage.setItem('currentDialog', JSON.stringify(dialog));
