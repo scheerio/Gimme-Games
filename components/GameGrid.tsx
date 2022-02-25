@@ -2,6 +2,8 @@ import React from 'react';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 
+/* This is the grid that displays the puzzles / games */
+
 type Props = {
     data: Array<any>
 };
