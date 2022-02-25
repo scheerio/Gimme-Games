@@ -74,7 +74,7 @@ function Navbar({}: NavbarProps) {
                                 {/* <Link href="/stats"><a className="block p-3 text-3xl hover:text-orange-300 transition ease-in-out delay-100 hover:scale-110">Stats</a></Link> */}
                                 {/* <Link href="/about"><a onClick={handleMobileMenuClick} className="block p-3 text-xl hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link> */}
                                 <a onClick={(e)=>handleMobileMenuReroute(e, '/about')} className="block p-3 text-xl hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a>
-                                <a className="mt-2 transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-xl px-4 py-3 leading-none border rounded text-black border-white hover:text-black bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
+                                <a className="hover:cursor-pointer mt-2 transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-xl px-4 py-3 leading-none border rounded text-black border-white hover:text-black bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
                             </nav>
                         </div>
                         {/*footer*/}
@@ -93,7 +93,7 @@ function Navbar({}: NavbarProps) {
                     <Link href="/about"><a className="block sm:inline-block text-white mr-10 hover:text-green-300 transition ease-in-out delay-100 hover:scale-110">About</a></Link>
                 </div>
                 <div>
-                    <a className="transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
+                    <a className="hover:cursor-pointer transition ease-in-out delay-100 hover:scale-110 transform duration-300 inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:text-black hover:bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100" onClick={handleSelectRandomGame}>Play Random Game</a>
                 </div>
             </div>
         </nav>
