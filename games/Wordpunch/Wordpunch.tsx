@@ -157,6 +157,15 @@ function Wordpunch({}: Props) {
       <Head>
         <title>Wordpunch | GimmePuzzles</title>
         <meta name="keywords" content="wordpunch"/>
+        <meta property="og:url" content="https://www.gimmepuzzles.com/wordpunch" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="GimmePuzzles"/>
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Play Wordpunch!"
+        />
+        <meta property="og:image" content={"/icon.png"} />
       </Head>
       {/* Handles modal rendering */}
       {modalOpen ? <InstructionsModal handleExitModal={handleExitModal}/> : null}

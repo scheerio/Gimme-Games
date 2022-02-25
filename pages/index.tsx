@@ -31,6 +31,15 @@ const Home: NextPage = () => {
       <Head>
         <title>Puzzles | GimmePuzzles</title>
         <meta name="keywords" content="puzzles"/>
+        <meta property="og:url" content="https://www.gimmepuzzles.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="GimmePuzzles"/>
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="A humble home for challenging puzzles"
+        />
+        <meta property="og:image" content={"/icon.png"} />
       </Head>
       <Layout>
         <div className="text-white p-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
