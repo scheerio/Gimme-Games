@@ -27,11 +27,17 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <Layout>
-      <div className="text-white p-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
-        <GameGrid data={currentData} />
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>Puzzles | GimmePuzzles</title>
+        <meta name="keywords" content="puzzles"/>
+      </Head>
+      <Layout>
+        <div className="text-white p-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+          <GameGrid data={currentData} />
+        </div>
+      </Layout>
+    </>
   )
 }
 

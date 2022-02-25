@@ -7,6 +7,7 @@ import styles from '../styles/Wordpunch.module.css';
 import { WRONG_GUESS_DIALOGS, WRONG_BUT_CLOSE_GUESS_DIALOGS, LOST_GAME_DIALOGS, WON_GAME_DIALOG } from '../../static/wordpunch/wordpunch_constants';
 import Countdown from 'react-countdown';
 import ReactTooltip from 'react-tooltip';
+import Head from 'next/head';
 
 /* Wordpunch game */
 
@@ -153,6 +154,10 @@ function Wordpunch({}: Props) {
 
   return (
     <>
+      <Head>
+        <title>Wordpunch | GimmePuzzles</title>
+        <meta name="keywords" content="wordpunch"/>
+      </Head>
       {/* Handles modal rendering */}
       {modalOpen ? <InstructionsModal handleExitModal={handleExitModal}/> : null}
 
