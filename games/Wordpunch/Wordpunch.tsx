@@ -17,7 +17,7 @@ function Wordpunch({}: Props) {
 
   /* Sets up state for everything */
   const [modalOpen, setModalOpen] = useState(true);
-  const [triesLeft, setTriesLeft] = useState(5);
+  const [triesLeft, setTriesLeft] = useState(3);
   const [input, setInput] = useState('');
   const [dialog, setDialog] = useState('Good luck guessing this word');
   const [gameData, setGameData] = useState<string[]>([]);
@@ -75,7 +75,7 @@ function Wordpunch({}: Props) {
   const getAndSetLocalStorageOnInitialRender = () => {
     setDidWinGame(JSON.parse(localStorage.getItem('winStatus') || 'false'));
     setDidLoseGame(JSON.parse(localStorage.getItem('loseStatus') || 'false'));
-    setTriesLeft(JSON.parse(localStorage.getItem('triesLeft') || '5'));
+    setTriesLeft(JSON.parse(localStorage.getItem('triesLeft') || '3'));
     setGameData(JSON.parse(localStorage.getItem('currentGameData') || '[]'));
     setAnswer(JSON.parse(localStorage.getItem('currentAnswer') || ''));
     setDialog(JSON.parse(localStorage.getItem('currentDialog') || 'Good luck guessing this word'));
