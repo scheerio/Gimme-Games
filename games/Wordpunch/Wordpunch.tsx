@@ -143,7 +143,11 @@ function Wordpunch({}: Props) {
       if (didLoseGame) {
         shareText = `I lost at Wordpunch today 😭 ${resultGraphic} but maybe you can win: ${URL}`;
       } else if (didWinGame){
-        shareText = `I won at Wordpunch with ${triesLeft} tries left 🎉 ${resultGraphic} play it here: ${URL}`;
+        if (triesLeft == 1){
+          shareText = `I won at Wordpunch with only 1 try left 🎉 ${resultGraphic} play it here: ${URL}`;
+        } else {
+          shareText = `I won at Wordpunch with ${triesLeft} tries left 🎉 ${resultGraphic} play it here: ${URL}`;
+        }
       }
       navigator.clipboard.writeText(shareText);
       setTimeout(ReactTooltip.hide, 3000)
