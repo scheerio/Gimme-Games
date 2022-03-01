@@ -1,5 +1,5 @@
 import React from 'react'
-import { EXAMPLE_HINT_DATA } from '../../static/wordpunch/wordpunch_constants'
+import { EXAMPLE_HINT_DATA, NUMBER_OF_TRIES } from '../../static/wordpunch/wordpunch_constants'
 
 /* This is an instructions modal for wordpunch */
 
@@ -53,7 +53,7 @@ function InstructionsModal({ handleExitModal }: Props) {
           </div>
           {/*body*/}
           <div className="text-black relative p-6 flex-auto text-center">
-            <p className="">You get <strong>3 tries</strong> to guess today's word!</p>
+            <p className="">You get <strong>{NUMBER_OF_TRIES} tries</strong> to guess today's word!</p>
             <p className="">Each hint contains part of the answer.</p>
             <p className="mb-5">A new game starts every 24 hours!</p>
             <p className="text-xl border-t border-solid border-blueGray-200 pt-4 font-semibold">Example</p>

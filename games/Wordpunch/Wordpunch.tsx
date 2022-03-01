@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import { getTomorrowForCountdown, getWordpunchGameData, hasOneDayPassed, validateWordpunchEntry } from '../../static/wordpunch/wordpunch_logic';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from '../styles/Wordpunch.module.css';
-import { WRONG_GUESS_DIALOGS, WRONG_BUT_CLOSE_GUESS_DIALOGS, LOST_GAME_DIALOGS, WON_GAME_DIALOG } from '../../static/wordpunch/wordpunch_constants';
+import { WRONG_GUESS_DIALOGS, WRONG_BUT_CLOSE_GUESS_DIALOGS, LOST_GAME_DIALOGS, WON_GAME_DIALOG, NUMBER_OF_TRIES } from '../../static/wordpunch/wordpunch_constants';
 import Countdown from 'react-countdown';
 import ReactTooltip from 'react-tooltip';
 import Head from 'next/head';
@@ -17,7 +17,7 @@ function Wordpunch({}: Props) {
 
   /* Sets up state for everything */
   const [modalOpen, setModalOpen] = useState(true);
-  const [triesLeft, setTriesLeft] = useState(3);
+  const [triesLeft, setTriesLeft] = useState(NUMBER_OF_TRIES);
   const [input, setInput] = useState('');
   const [dialog, setDialog] = useState('Good luck guessing this word');
   const [gameData, setGameData] = useState<string[]>([]);
@@ -73,9 +73,10 @@ function Wordpunch({}: Props) {
 
   /* Gets what's in storage and sets state with it */
   const getAndSetLocalStorageOnInitialRender = () => {
+    const triesStringVersion = NUMBER_OF_TRIES.toString();
     setDidWinGame(JSON.parse(localStorage.getItem('winStatus') || 'false'));
     setDidLoseGame(JSON.parse(localStorage.getItem('loseStatus') || 'false'));
-    setTriesLeft(JSON.parse(localStorage.getItem('triesLeft') || '3'));
+    setTriesLeft(JSON.parse(localStorage.getItem('triesLeft') || triesStringVersion));
     setGameData(JSON.parse(localStorage.getItem('currentGameData') || '[]'));
     setAnswer(JSON.parse(localStorage.getItem('currentAnswer') || ''));
     setDialog(JSON.parse(localStorage.getItem('currentDialog') || 'Good luck guessing this word'));
