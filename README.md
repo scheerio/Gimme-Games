@@ -1,6 +1,6 @@
 ## Welcome to Gimme Puzzles!
 
-I built this website using React + Typescript + Next.js + TailwindCSS. It's a humble home for new, challenging puzzles. I started by creating my own original game called Wordpunch (kind of like Hangman and Wordle combined) which can be played on the website: [www.gimmepuzzles.com](https://gimmepuzzles.vercel.app/wordpunch)
+I built this website using React + Typescript + Next.js + TailwindCSS. It's a humble home for new, challenging puzzles. I started by creating my own original game called Wordpunch (kind of like Hangman and Wordle combined) which can be played on the website: [https://gimmepuzzles.vercel.app/wordpunch](https://gimmepuzzles.vercel.app/wordpunch)
 
 Instructions are below for working with project locally.
 
